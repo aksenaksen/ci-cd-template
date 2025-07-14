@@ -19,6 +19,11 @@ import java.util.List;
 public class UserController {
     UserService userService;
 
+    @GetMapping("/healthcheck")
+    public ResponseEntity<String> healthCheck(){
+        return ResponseEntity.ok("ci cd test is ok");
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDto> user(@PathVariable Integer id) {
         UserResponseDto user = userService.findById(id);
